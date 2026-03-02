@@ -50,7 +50,7 @@ body {
 /* Projects page */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   align-items: stretch;
 }
@@ -102,8 +102,68 @@ body {
   opacity: 0.85;
 }
 
+/* ─── LETTER PDF VIEWER ─── */
+.letter-main {
+  height: 100vh;
+  height: 100dvh; /* iOS Safari: shrinks to exclude browser chrome */
+}
+
+.letter-pdf-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px 16px;
+  min-height: 0;
+}
+
+.letter-pdf-clip {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  width: 100%;
+  max-width: calc((100vh - 80px) / 1.4142);
+  min-height: 0;
+  border-radius: 3px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+.letter-pdf-iframe {
+  position: absolute;
+  top: -28px;
+  left: -28px;
+  width: calc(100% + 56px);
+  height: calc(100% + 56px);
+  border: none;
+}
+
 /* ─── MOBILE (≤768px) ─── */
 @media (max-width: 768px) {
+  /* Letter PDF: fill the full screen width, keep the clipping trick active */
+  .letter-pdf-wrapper {
+    padding: 0 !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+  }
+
+  .letter-pdf-clip {
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    /* height: match A4 portrait ratio for the visible clip area (before iframe bleed) */
+    height: calc(100vw * 1.378) !important;
+    max-height: calc(100vh - 56px) !important;
+    flex: none !important;
+    /* clipping shell stays active — do NOT reset iframe top/left */
+  }
+
+  /* Keep the -28px bleed clipping on mobile — only adjust if screen is very narrow */
+  .letter-pdf-iframe {
+    top: -28px !important;
+    left: -28px !important;
+    width: calc(100% + 56px) !important;
+    height: calc(100% + 56px) !important;
+  }
   /* Main page layout — stack everything */
   .page-main {
     height: auto !important;
@@ -151,7 +211,7 @@ body {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 8px;
   }
 
@@ -200,7 +260,7 @@ body {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr !important;
   }
 }
 

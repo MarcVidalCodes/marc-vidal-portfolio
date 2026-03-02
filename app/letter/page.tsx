@@ -4,6 +4,7 @@ import { FaArrowLeft, FaDownload } from "react-icons/fa";
 export default function LetterPage() {
   return (
     <main
+      className="letter-main"
       style={{
         height: "100vh",
         display: "flex",
@@ -13,7 +14,7 @@ export default function LetterPage() {
         overflow: "hidden",
       }}
     >
-      {/* Minimal header — floats over grid */}
+      {/* Minimal header */}
       <div
         style={{
           display: "flex",
@@ -63,44 +64,22 @@ export default function LetterPage() {
         </a>
       </div>
 
-      {/* PDF — clip the browser viewer's gray chrome by overflowing the iframe */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "4px 40px 16px",
-          minHeight: 0,
-          overflow: "hidden",
-        }}
-      >
-        {/* Clipping shell — hides the PDF viewer's internal gray padding */}
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            maxWidth: "calc((100vh - 80px) / 1.4142)",
-            overflow: "hidden",
-            borderRadius: 3,
-            boxShadow: "0 8px 40px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.1)",
-            position: "relative",
-          }}
-        >
+      {/* PDF viewer area */}
+      <div className="letter-pdf-wrapper">
+        {/* Clipping shell — hides the browser PDF viewer's gray chrome */}
+        <div className="letter-pdf-clip">
           <iframe
             src="/LetterOfRecommendation.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
-            style={{
-              position: "absolute",
-              top: "-28px",
-              left: "-28px",
-              width: "calc(100% + 56px)",
-              height: "calc(100% + 56px)",
-              border: "none",
-              display: "block",
-            }}
+            className="letter-pdf-iframe"
             title="Letter of Recommendation"
           />
         </div>
+
+        {/* iOS fallback — shown only when iframe can't render PDF */}
+        <noscript>
+          <a href="/LetterOfRecommendation.pdf" target="_blank" rel="noreferrer"
+            style={{ color: "#6366f1", fontSize: 14 }}>Open PDF ↗</a>
+        </noscript>
       </div>
     </main>
   );

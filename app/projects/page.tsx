@@ -11,6 +11,20 @@ const base: React.CSSProperties = {
 
 const projects = [
   {
+    title: "Autonomous Payment Orchestrator",
+    period: "2026 — Ongoing",
+    description:
+      "Unified payment gateway in Go that routes checkout requests to Stripe (fiat) or Coinbase (crypto). Includes a background resolution worker that uses an LLM to decide and execute fallback actions on failed payments — retry, refund, or flag for manual review. Designed around an OpenAPI spec with a strict Provider interface.",
+    tags: ["Go", "Stripe", "Coinbase", "LLM", "Docker", "Kubernetes", "Prometheus"],
+    accent: "#0ea5e9",
+    accentBg: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)",
+    emoji: "⚙️",
+    github: "https://github.com/MarcVidalCodes/autonomous-payment-orchestrator",
+    live: null,
+    badge: "🚧 In Planning",
+    featured: true,
+  },
+  {
     title: "Agentic War Room",
     period: "Nov 2025 – Dec 2025",
     description:
@@ -19,21 +33,21 @@ const projects = [
     accent: "#6366f1",
     accentBg: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
     emoji: "🤖",
-    github: "#",
+    github: "https://github.com/MarcVidalCodes/devops-war-room",
     live: null,
     badge: null,
-    featured: true,
+    featured: false,
   },
   {
     title: "Tag Royale",
     period: "March 2025",
     description:
-      "GPS-powered multiplayer tag game built in 24 hrs at CuHacking. Geofencing, shrinking safe zone, configurable rules, and real-time map updates. Socket.io rooms with reconnection logic, basic host migration, and proximity-based tag detection with debouncing.",
+      "GPS-powered multiplayer tag game built in 24 hrs at CuHacking. Geofencing, shrinking safe zone, configurable rules, and real-time map updates. Socket.io rooms with proximity-based tag detection with debouncing.",
     tags: ["React Native", "TypeScript", "Express", "Socket.io", "WebSockets"],
     accent: "#f59e0b",
     accentBg: "linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)",
     emoji: "🏃",
-    github: "#",
+    github: "https://devpost.com/software/tag-royale",
     live: null,
     badge: "🏆 Best Crossover Hack — CuHacking (24 teams)",
     featured: false,
@@ -42,12 +56,12 @@ const projects = [
     title: "RelaxED AI",
     period: "September 2024",
     description:
-      "Won Second Best Hardware Hack at Hack the Hill II. Led backend + full-stack integration for a 4-person team — REST APIs, MongoDB data flows for reactive UI. Fine-tuned OpenAI model with streaming + safety guardrails, secured with JWT auth, bcrypt, and API rate limiting.",
+      "Won Second Best Hardware Hack at Hack the Hill II. Led backend + full-stack integration for a 4-person team — REST APIs, MongoDB data flows for reactive UI. Fine-tuned OpenAI model, secured with JWT auth and bcrypt",
     tags: ["React", "MongoDB", "TypeScript", "Express", "Node.js", "Python"],
     accent: "#10b981",
     accentBg: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)",
     emoji: "🧘",
-    github: "#",
+    github: "https://devpost.com/software/relaxed-ai",
     live: null,
     badge: "🥈 2nd Best Hardware Hack — Hack The Hill II",
     featured: false,
@@ -136,7 +150,7 @@ export default function ProjectsPage() {
                   borderRadius: 6,
                   border: "1px solid #10b98133",
                 }}>
-                  ★ Largest Project · Volunteer
+                  ★ Design Team Volunteer
                 </span>
                 <span style={{ fontSize: 10, color: "#6ee7b7", fontWeight: 500 }}>Sept 2024 – Feb 2025 · Ottawa, ON</span>
               </div>
@@ -147,7 +161,7 @@ export default function ProjectsPage() {
                 <span style={{ fontSize: 13, color: "#6ee7b7" }}>blackbirduav.ca ↗</span>
               </div>
               <p style={{ fontSize: 13, color: "#a7f3d0" }}>
-                Co-led software development · Team of 6 · Live production site
+                Software Developmer · Team of 6 · Live production site
               </p>
             </div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 48, height: 48, borderRadius: "50%", border: "1.5px solid #10b98166", color: "#34d399", flexShrink: 0 }}>
@@ -159,7 +173,7 @@ export default function ProjectsPage() {
           <div style={{ display: "flex", gap: 40, flexWrap: "wrap", position: "relative" }}>
             {[
               { stat: "$12.5k", desc: "in sponsorships secured" },
-              { stat: "6 devs", desc: "team co-led end-to-end" },
+              { stat: "6", desc: "developers" },
               { stat: "Live ↗", desc: "production site at blackbirduav.ca" },
             ].map((item) => (
               <div key={item.stat} style={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -195,7 +209,7 @@ export default function ProjectsPage() {
 
       {/* Other projects grid */}
       <div className="projects-grid">
-        {projects.map((p, i) => (
+        {projects.map((p) => (
           <div
             key={p.title}
             className="bento"
@@ -203,18 +217,19 @@ export default function ProjectsPage() {
               ...base,
               background: p.accentBg,
               border: `1px solid ${p.accent}44`,
-              padding: i === 0 ? "32px" : "24px",
+              padding: p.featured ? "32px" : "24px",
               display: "flex",
               flexDirection: "column",
               gap: 14,
+              gridColumn: p.featured ? "1 / -1" : undefined,
             }}
           >
             {/* top row */}
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-              <span style={{ fontSize: i === 0 ? 44 : 32 }}>{p.emoji}</span>
+              <span style={{ fontSize: p.featured ? 44 : 32 }}>{p.emoji}</span>
               <div style={{ display: "flex", gap: 8 }}>
                 <a href={p.github} style={iconBtn(p.accent)} target="_blank" rel="noreferrer" title="GitHub">
-                  <FaGithub size={i === 0 ? 14 : 13} />
+                  <FaGithub size={p.featured ? 14 : 13} />
                 </a>
                 {p.live && (
                   <a href={p.live} style={iconBtn(p.accent)} target="_blank" rel="noreferrer" title="Live">
@@ -239,17 +254,17 @@ export default function ProjectsPage() {
                 color: p.accent,
                 alignSelf: "flex-start",
               }}>
-                <FaTrophy size={9} /> {p.badge.replace(/^🏆 |^🥈 /, "")}
+                {/^🏆|^🥈/.test(p.badge) ? <><FaTrophy size={9} /> {p.badge.replace(/^🏆 |^🥈 /, "")}</> : p.badge}
               </div>
             )}
 
             {/* content */}
             <div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 6 }}>
-                <h2 style={{ fontSize: i === 0 ? 24 : 18, fontWeight: 800, color: "#0f172a", letterSpacing: "-0.4px" }}>{p.title}</h2>
+                <h2 style={{ fontSize: p.featured ? 24 : 18, fontWeight: 800, color: "#0f172a", letterSpacing: "-0.4px" }}>{p.title}</h2>
                 <span style={{ fontSize: 10.5, color: "#94a3b8", whiteSpace: "nowrap" as const }}>{p.period}</span>
               </div>
-              <p style={{ fontSize: i === 0 ? 13 : 12, color: "#475569", lineHeight: 1.75 }}>{p.description}</p>
+              <p style={{ fontSize: p.featured ? 13 : 12, color: "#475569", lineHeight: 1.75 }}>{p.description}</p>
             </div>
 
             {/* tags */}

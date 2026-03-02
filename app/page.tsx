@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaDatabase, FaChartBar, FaCloud, FaJava } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaDatabase, FaChartBar, FaCloud, FaJava, FaExternalLinkAlt } from "react-icons/fa";
 import {
   SiPython, SiCplusplus, SiSharp, SiTypescript, SiJavascript, SiGo, SiHtml5, SiCss3,
   SiDotnet, SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiNextdotjs,
@@ -45,7 +45,7 @@ function HeroCard() {
           Incoming Software Engineer @ Kinaxis
         </p>
         <p style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>
-          A curious CS student at Carleton University
+          A Computer Science student at Carleton University
         </p>
       </div>
 
@@ -87,7 +87,7 @@ function AboutCard() {
           { e: "🏀", text: "Big NBA & NFL fan" },
           { e: "⚔️", text: "Favourite anime: Attack on Titan" },
           { e: "🍎", text: "I love to teach" },
-          { e: "⛸️", text: "I skate the Rideau Canal every winter" },
+          { e: "⛸️", text: "I skate to campus on the Rideau Canal every winter" },
         ].map(({ e, text }) => (
           <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: 7, fontSize: 11.5, color: "#475569", lineHeight: 1.6 }}>
             <span style={{ flexShrink: 0 }}>{e}</span>
@@ -146,7 +146,7 @@ function SkillsCard() {
 
   return (
     <div className="bento" style={{ ...base, flex: 1.6, display: "flex", flexDirection: "column", gap: 10, overflow: "hidden" }}>
-      <h2 style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", flexShrink: 0 }}>Tech Stack</h2>
+      <h2 style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", flexShrink: 0 }}>Tech</h2>
       <div className="skills-grid">
         {skills.map((s) => (
           <span
@@ -168,30 +168,54 @@ function ExperienceCard() {
   const experiences = [
     {
       role: "Software Developer Intern",
+      company: "Kinaxis",
+      url: "https://www.kinaxis.com/en",
+      period: "Incoming May 2026",
+      location: "Kanata, ON",
+      bullets: [
+        "Product Team; Backend Technologies",
+      ],
+      color: "red",
+      tags: [],
+    },
+    {
+      role: "Software Developer Intern",
       company: "JSI — TPMO",
+      url: "https://www.jsitelecom.com",
       period: "Sept 2025 – Dec 2025",
       location: "Kanata, ON",
       bullets: [
         "Built a Golang microservice with Jenkins & GitHub Actions CI/CD to extract GitHub Copilot metrics for 40+ engineering teams.",
-        "Built an Azure DevOps extension (JS) to reconstruct historical sprint timelines for volatility analysis.",
-        "Productized a Heuristic Burndown extension tracking actual vs assigned scope via Azure DevOps REST APIs.",
+        "Productized an Azure DevOps Heuristic Burndown extension (JS) to track actual vs assigned scope and sprint timelines for volatility analysis.",
         "Automated dashboard auditing across 50+ sites with a Python pipeline generating Excel/Markdown reports, cutting hours to minutes.",
       ],
-      color: "#6366f1",
-      tags: ["Golang", "Python", "Azure DevOps", "Jenkins"],
+      color: "blue",
+      tags: ["Golang", "Python", "PowerBI", "Jenkins"],
     },
     {
       role: "Software Developer Intern",
       company: "DecisivEdge",
+      url: "https://www.decisivedge.com",
       period: "June 2025 – Aug 2025",
       location: "Markham, ON",
       bullets: [
         "Reduced B2B product search time by 71% (1.2s → 350ms) via a delta-refresh ETL pipeline and SQL Server Full-Text Search.",
-        "Developed dynamic accounting filters and a real-time Samsara API driver reassignment feature for dispatch teams.",
-        "Collaborated in an Agile team with senior executives; contributed to the company's AI R&D adoption guidelines.",
+        "Developed new dynamic filters (e.g., credit status, balance) for the internal accounting dashboard, architecting the backend with batched query execution to replace the inefficient ’load-all’ approach",
+      ],
+      color: "orange",
+      tags: ["ASP.NET", "C#", "SQL Server", "LINQ"],
+    },
+    {
+      role: "Lifeguard & Swim Instructor",
+      company: "Town of Stouffville",
+      url: "https://www.townofws.ca",
+      period: "June 2025 – Aug 2025",
+      location: "Stouffville, ON",
+      bullets: [
+        "Achieved a 100% pass rate for two Bronze Medallion & Emergency First Aid courses (45 students), successfully teaching complex safety theory and practical skills to large groups",
       ],
       color: "#3b82f6",
-      tags: ["ASP.NET", "C#", "SQL Server", "LINQ"],
+      tags: ["400+ Students", "First Aid"],
     },
   ];
 
@@ -207,7 +231,12 @@ function ExperienceCard() {
             <div style={{ width: 3, borderRadius: 99, backgroundColor: exp.color, flexShrink: 0, alignSelf: "stretch" }} />
             <div style={{ flex: 1 }}>
               <p style={{ fontSize: 12.5, fontWeight: 700, color: "#0f172a", marginBottom: 1 }}>{exp.role}</p>
-              <p style={{ fontSize: 11, color: exp.color, fontWeight: 600, marginBottom: 2 }}>{exp.company} · {exp.period}</p>
+              <p style={{ fontSize: 11, color: exp.color, fontWeight: 600, marginBottom: 2 }}>
+                <a href={exp.url} target="_blank" rel="noreferrer" style={{ color: exp.color, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>
+                  {exp.company}<FaExternalLinkAlt size={8} style={{ opacity: 0.7 }} />
+                </a>
+                {" "}· {exp.period}
+              </p>
               <ul style={{ paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column" as const, gap: 3, marginBottom: 6 }}>
                 {exp.bullets.map((b, j) => (
                   <li key={j} style={{ fontSize: 11, color: "#64748b", lineHeight: 1.6, display: "flex", gap: 6 }}>
