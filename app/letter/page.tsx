@@ -63,31 +63,44 @@ export default function LetterPage() {
         </a>
       </div>
 
-      {/* PDF — fills available height, width constrained by A4 ratio */}
+      {/* PDF — clip the browser viewer's gray chrome by overflowing the iframe */}
       <div
         style={{
           flex: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "8px 40px 20px",
+          padding: "4px 40px 16px",
           minHeight: 0,
           overflow: "hidden",
         }}
       >
-        <iframe
-          src="/LetterOfRecommendation.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit"
+        {/* Clipping shell — hides the PDF viewer's internal gray padding */}
+        <div
           style={{
             height: "100%",
             width: "100%",
             maxWidth: "calc((100vh - 80px) / 1.4142)",
-            border: "none",
+            overflow: "hidden",
             borderRadius: 3,
-            boxShadow: "0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08)",
-            display: "block",
+            boxShadow: "0 8px 40px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.1)",
+            position: "relative",
           }}
-          title="Letter of Recommendation"
-        />
+        >
+          <iframe
+            src="/LetterOfRecommendation.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+            style={{
+              position: "absolute",
+              top: "-28px",
+              left: "-28px",
+              width: "calc(100% + 56px)",
+              height: "calc(100% + 56px)",
+              border: "none",
+              display: "block",
+            }}
+            title="Letter of Recommendation"
+          />
+        </div>
       </div>
     </main>
   );
