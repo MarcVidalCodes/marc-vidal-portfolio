@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaDatabase, FaChartBar, FaCloud, FaJava, FaExternalLinkAlt } from "react-icons/fa";
-import { Analytics } from "@vercel/analytics/next"
 import {
   SiPython, SiCplusplus, SiSharp, SiTypescript, SiJavascript, SiGo, SiHtml5, SiCss3,
   SiDotnet, SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiNextdotjs,
@@ -16,7 +15,6 @@ const base: React.CSSProperties = {
   overflow: "hidden",
   position: "relative",
 };
-
 /* ─── HERO ───────────────────────────────────────────────── */
 function HeroCard() {
   return (
