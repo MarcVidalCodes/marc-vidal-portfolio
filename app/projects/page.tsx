@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaGithub, FaArrowLeft, FaExternalLinkAlt, FaTrophy } from "react-icons/fa";
+import { FaArrowLeft, FaExternalLinkAlt, FaTrophy } from "react-icons/fa";
 
 const base: React.CSSProperties = {
   backgroundColor: "#ffffff",
@@ -95,6 +95,7 @@ export default function ProjectsPage() {
             color: "#374151",
             textDecoration: "none",
             boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
+            cursor: "pointer",
           }}
         >
           <FaArrowLeft size={11} /> Back
@@ -229,7 +230,7 @@ export default function ProjectsPage() {
               <span style={{ fontSize: p.featured ? 44 : 32 }}>{p.emoji}</span>
               <div style={{ display: "flex", gap: 8 }}>
                 <a href={p.github} style={iconBtn(p.accent)} target="_blank" rel="noreferrer" title="GitHub">
-                  <FaGithub size={p.featured ? 14 : 13} />
+                  <FaExternalLinkAlt size={p.featured ? 12 : 11} />
                 </a>
                 {p.live && (
                   <a href={p.live} style={iconBtn(p.accent)} target="_blank" rel="noreferrer" title="Live">

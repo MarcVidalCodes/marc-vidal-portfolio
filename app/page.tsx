@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaDatabase, FaChartBar, FaCloud, FaJava, FaExternalLinkAlt } from "react-icons/fa";
+import { Analytics } from "@vercel/analytics/next"
 import {
   SiPython, SiCplusplus, SiSharp, SiTypescript, SiJavascript, SiGo, SiHtml5, SiCss3,
   SiDotnet, SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiNextdotjs,
@@ -84,9 +85,10 @@ function AboutCard() {
       <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
         {[
           { e: "🐶", text: "My dog Hershey is a Shih Tzu × Maltese" },
+          { e: "🎮", text: "Currently playing Pokémon Pokopia" },
+          { e: "🏃‍➡️", text: "Training for a marathon" },
           { e: "🏀", text: "Big NBA & NFL fan" },
           { e: "⚔️", text: "Favourite anime: Attack on Titan" },
-          { e: "🍎", text: "I love to teach" },
           { e: "⛸️", text: "I skate to campus on the Rideau Canal every winter" },
         ].map(({ e, text }) => (
           <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: 7, fontSize: 11.5, color: "#475569", lineHeight: 1.6 }}>
@@ -185,9 +187,9 @@ function ExperienceCard() {
       period: "Sept 2025 – Dec 2025",
       location: "Kanata, ON",
       bullets: [
-        "Built a Golang microservice with Jenkins & GitHub Actions CI/CD to extract GitHub Copilot metrics for 40+ engineering teams.",
-        "Productized an Azure DevOps Heuristic Burndown extension (JS) to track actual vs assigned scope and sprint timelines for volatility analysis.",
-        "Automated dashboard auditing across 50+ sites with a Python pipeline generating Excel/Markdown reports, cutting hours to minutes.",
+        "Built a Golang microservice with Jenkins & GitHub Actions CI/CD to extract GitHub Copilot metrics to report company wide AI adoption insights and analytics across 40+ engineering teams",
+        "Productized an Azure DevOps Heuristic Burndown extension (JS) to track actual vs assigned scope and sprint timelines for volatility analysis",
+        "Automated dashboard auditing across 50+ sites with a Python pipeline generating Excel/Markdown reports, cutting hours to minutes",
       ],
       color: "blue",
       tags: ["Golang", "Python", "PowerBI", "Jenkins"],
@@ -199,7 +201,7 @@ function ExperienceCard() {
       period: "June 2025 – Aug 2025",
       location: "Markham, ON",
       bullets: [
-        "Reduced B2B product search time by 71% (1.2s → 350ms) via a delta-refresh ETL pipeline and SQL Server Full-Text Search.",
+        "Reduced product search time by 71% (1.2s → 350ms) via a delta-refresh ETL pipeline and SQL Server Full-Text Search",
         "Developed new dynamic filters (e.g., credit status, balance) for the internal accounting dashboard, architecting the backend with batched query execution to replace the inefficient ’load-all’ approach",
       ],
       color: "orange",
