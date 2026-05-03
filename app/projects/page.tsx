@@ -11,20 +11,6 @@ const base: React.CSSProperties = {
 
 const projects = [
   {
-    title: "Autonomous Payment Orchestrator",
-    period: "2026 — Ongoing",
-    description:
-      "Unified payment gateway in Go that routes checkout requests to Stripe (fiat) or Coinbase (crypto). Includes a background resolution worker that uses an LLM to decide and execute fallback actions on failed payments — retry, refund, or flag for manual review. Designed around an OpenAPI spec with a strict Provider interface.",
-    tags: ["Go", "Stripe", "Coinbase", "LLM", "Docker", "Kubernetes", "Prometheus"],
-    accent: "#0ea5e9",
-    accentBg: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)",
-    emoji: "⚙️",
-    github: "https://github.com/MarcVidalCodes/autonomous-payment-orchestrator",
-    live: null,
-    badge: "🚧 In Planning",
-    featured: true,
-  },
-  {
     title: "Agentic War Room",
     period: "Nov 2025 – Dec 2025",
     description:

@@ -41,7 +41,7 @@ function HeroCard() {
           Marc Vidal
         </h1>
         <p style={{ fontSize: 15, fontWeight: 600, color: "#6366f1", marginBottom: 8, letterSpacing: "-0.3px" }}>
-          Incoming Software Engineer @ Kinaxis
+          Software Engineer Intern @ Kinaxis
         </p>
         <p style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>
           A Computer Science student at Carleton University
@@ -170,7 +170,7 @@ function ExperienceCard() {
       role: "Software Developer Intern",
       company: "Kinaxis",
       url: "https://www.kinaxis.com/en",
-      period: "Incoming May 2026",
+      period: "May 2026 - Present",
       location: "Kanata, ON",
       bullets: [
         "Product Team; Backend Technologies",
