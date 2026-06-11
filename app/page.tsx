@@ -173,10 +173,11 @@ function ExperienceCard() {
       period: "May 2026 - Present",
       location: "Kanata, ON",
       bullets: [
-        "Product Team; Backend Technologies",
+        "Cool backend stuff on the Query Engine team",
+        "Optimizing AI agents because tokens are expensive"
       ],
       color: "red",
-      tags: [],
+      tags: ["Go", "Docker", "Kubernetes", "Google Cloud Platform (GCP)", "Jenkins", "AI agents"],
     },
     {
       role: "Software Developer Intern",
@@ -190,7 +191,7 @@ function ExperienceCard() {
         "Automated dashboard auditing across 50+ sites with a Python pipeline generating Excel/Markdown reports, cutting hours to minutes",
       ],
       color: "blue",
-      tags: ["Golang", "Python", "PowerBI", "Jenkins"],
+      tags: ["Go", "Python", "PowerBI", "Jenkins"],
     },
     {
       role: "Software Developer Intern",
