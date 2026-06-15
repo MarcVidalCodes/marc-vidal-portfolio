@@ -173,11 +173,10 @@ function ExperienceCard() {
       period: "May 2026 - Present",
       location: "Kanata, ON",
       bullets: [
-        "Cool backend stuff on the Query Engine team",
-        "Optimizing AI agents because tokens are expensive"
+        "Cool backend stuff on the Query Engine team"
       ],
       color: "red",
-      tags: ["Go", "Docker", "Kubernetes", "Google Cloud Platform (GCP)", "Jenkins", "AI agents"],
+      tags: ["Go", "Docker", "Kubernetes", "Google Cloud Platform (GCP)", "Jenkins"],
     },
     {
       role: "Software Developer Intern",
